@@ -1,18 +1,15 @@
 body * {
-    font-family: 'Spartan', sans-serif;
+    font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 header {
-    height: 150px;
+    padding: 20px 0;
     background-color: #64BABB;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .filter_field {
     height: 50px;
-    width: 800px;
+    width: 80%;
     background-color: #fff;
     border-radius: 8px;
     display: flex;
@@ -23,10 +20,55 @@ header {
     font-weight: 700;
     text-decoration: underline;
     font-size: 15px;
+    margin: 0 auto 20px;
 }
 
 .clear_filters_button:hover {
     cursor: pointer;
+}
+
+.tags_field {
+    margin: 0 auto;
+}
+
+.dev_tags {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.tag {
+    padding: 5px 5px;
+    background-color: #F0FAFB;
+    margin: 5px 5px;
+    border-radius: 5px;
+    min-width: 11%;
+    text-align: center;
+    color: #64BABB;
+}
+
+.dev_tag.active {
+    background-color: rgb(226, 238, 158);
+    color: #F0FAFB;
+}
+
+.city_tag.active {
+    background-color: rgb(100, 187, 143);
+    color: #F0FAFB;
+}
+
+.dev_tag:hover {
+    cursor: pointer;
+    background-color: rgb(226, 238, 158);
+    color: #F0FAFB;
+}
+
+.city_tag:hover {
+    cursor: pointer;
+    background-color: rgb(100, 187, 143);
+    color: #F0FAFB;
 }
 
 main {
@@ -36,7 +78,7 @@ main {
 }
 
 .wrapper {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     padding: 30px;
 }
@@ -141,11 +183,5 @@ main {
 
 .vacancy_tag:nth-child(2) {
     margin: 0 20px;
-}
-
-.vacancy_tag:hover {
-    cursor: pointer;
-    background-color: #64BABB;
-    color: #F0FAFB;
 }
 
