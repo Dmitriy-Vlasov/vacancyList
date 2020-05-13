@@ -6,12 +6,14 @@ import './style.css';
 const vacancyTemplate = document.querySelector('#vacancy_item_template').innerHTML;
 const vacanciesList = document.querySelector('.vacancies_list');
 const tagsField = document.querySelector('.tags_field');
+const tagsArea = document.querySelectorAll('.city_tag');
+const tagsLanguage = document.querySelectorAll('.dev_tag');
 
 tagsField.addEventListener('click', onTagsFieldClick, false)
 
 let vacanciesData = [];
-let filterLanguageTags = '';
-let filterAreaTags = '';
+let filterLanguageTags;
+let filterAreaTags;
 
 
 init();
@@ -38,20 +40,36 @@ function onTagsFieldClick(e) {
 function onTagClick(e) {
     if (e.target.classList.contains('dev_tag')) {
         filterLanguageTags = e.target.innerHTML;
+        clearTag(tagsLanguage);
+        tagToActive(e);
     }else if (e.target.classList.contains('city_tag')) {
         filterAreaTags = e.target.innerHTML;
+        clearTag(tagsArea);
+        tagToActive(e);
     }
 
     filterVacancies();
 }
 
+function tagToActive(e) {
+    e.target.classList.toggle('active');
+}
+
+function clearTag(tagGroup) {
+    [...tagGroup].forEach(el => {
+    if(el.classList.contains('active')) {
+        el.classList.remove('active');
+    }
+})
+}
+
 function filterVacancies() {
     let filteredVacancies;
 
-    if (filterLanguageTags === '') {
+    if (!filterLanguageTags) {
         filteredVacancies = vacanciesData['items']
             .filter(el => el['tagsArea'] === filterAreaTags);
-    } else if (filterAreaTags === '') {
+    } else if (!filterAreaTags) {
         filteredVacancies = vacanciesData['items']
         .filter(el => el['tagsLanguage'] === filterLanguageTags);
     } else {
@@ -59,7 +77,12 @@ function filterVacancies() {
         .filter(el => el['tagsLanguage'] === filterLanguageTags && el['tagsArea'] === filterAreaTags);
     }
 
-    renderVacanciesList(filteredVacancies);
+    if(filteredVacancies == '') {
+        vacanciesList.innerHTML = '<h2 class="no_result">К сожалению, результатов нет :(</h2>'
+    } else {
+        console.log(filteredVacancies);
+        renderVacanciesList(filteredVacancies);
+    }
 }
 
 function renderVacanciesList(data) {
