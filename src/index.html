@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="filter_field">
+            <div class="filters"></div>
+            <div class="clear_filters_button">
+                Clear
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper vacancies_list">
+            
+        </div>
+    </main>
+
+    <template  id='vacancy_item_template'>
+        <div class="vacancy_item" data-id="{{data-id}}">
+            <div class="vacancy_info_block">
+                <div class="vacancy_logo" style="background-image: url({{logo}});"></div>
+                <div class="vacancy_info">
+                    <h2 class="vacancy_company_name">{{company_name}}</h2>
+                    <p class="vacancy_title">{{vacancy_title}}</p>
+                    <div class="vacancy_description">
+                        <p class="vacancy_date">{{vacancy_date}}</p>
+                        <p class="vacancy_salary">{{vacancy_salary}}</p>
+                        <div class="vacancy_area">{{vacancy_area}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="vacancy_tags">
+                <div class="vacancy_tag">{{tag_language}}</div>
+                <div class="vacancy_tag">{{tag_2}}</div>
+                <div class="vacancy_tag">{{tag_3}}</div>
+            </div>
+        </div>
+    </template>
+
+    
+</body>
+</html>
