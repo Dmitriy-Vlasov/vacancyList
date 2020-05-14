@@ -8,8 +8,12 @@ const vacanciesList = document.querySelector('.vacancies_list');
 const tagsField = document.querySelector('.tags_field');
 const tagsArea = document.querySelectorAll('.city_tag');
 const tagsLanguage = document.querySelectorAll('.dev_tag');
+const clearButton = document.querySelector('.clear_filters_button');
+const tag = document.querySelectorAll('.tag');
 
-tagsField.addEventListener('click', onTagsFieldClick, false)
+tagsField.addEventListener('click', onTagsFieldClick);
+clearButton.addEventListener('click', onClearButtonClick)
+
 
 let vacanciesData = [];
 let filterLanguageTags;
@@ -19,7 +23,7 @@ let filterAreaTags;
 init();
 
 function init() {
-    fetch('https://api.hh.ru/vacancies?text=developer&area=5&per_page=50')
+    fetch('https://api.hh.ru/vacancies?text=developer&area=5&per_page=100')
     .then(resp => resp.json())
     .then(createVacanciesList)
 
@@ -27,8 +31,15 @@ function init() {
         vacanciesData = data;
         console.log(vacanciesData)
 
-        renderVacanciesList(vacanciesData['items'])
+        renderVacanciesList(vacanciesData['items']);
     }
+}
+
+function onClearButtonClick() {
+    filterLanguageTags = '';
+    filterAreaTags = '';
+    [...tag].forEach(el => el.classList.remove('active'))
+    renderVacanciesList(vacanciesData['items']);
 }
 
 function onTagsFieldClick(e) {
@@ -78,9 +89,8 @@ function filterVacancies() {
     }
 
     if(filteredVacancies == '') {
-        vacanciesList.innerHTML = '<h2 class="no_result">К сожалению, результатов нет :(</h2>'
-    } else {
-        console.log(filteredVacancies);
+        vacanciesList.innerHTML = '<h2 class="no_result">К сожалению, результатов нет :(</h2>';
+    } else {  
         renderVacanciesList(filteredVacancies);
     }
 }
@@ -127,10 +137,10 @@ function determineTagLanguage(el) {
     const language = 
         [
             'Python', 'Java ',
-            'C++', 'C#', '.NET', 
-            'JavaScript', 'PHP', 
-            'Unity', 'Swift', 'React',
-            'VueJS', 'Angular', 'Full-Stack',
+            'C++', 'C#', 
+            '.NET', 'JavaScript',
+            'Unity', 'React',
+            'Vue', 'Full-Stack',
         ];
     
     const languageItem = language.find(elem => el['name'].includes(elem)) || 'Другие специальности';
@@ -142,10 +152,9 @@ function determineTagArea(el) {
     const area = 
         [
             'Киев', 'Харьков',
-            'Днепр', 'Винница', 'Львов', 
-            'Запорожье', 'Ивано-Франковск', 'Одесса', 
-            'Донецк', 'Черкассы', 'Сумы',
-            'Полтава', 'Николаев',
+            'Днепр', 'Винница', 
+            'Львов', 'Запорожье',
+            'Одесса', 'Донецк'
         ];
 
     const areaItem = area.find(elem => el.area['name'].includes(elem)) || 'Другие города';
