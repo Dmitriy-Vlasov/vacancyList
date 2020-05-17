@@ -2,9 +2,62 @@ body * {
     font-family: 'Ubuntu Condensed', sans-serif;
 }
 
+.preloader {
+    width: 100vw;
+    height: 100vh;
+    background-color: #F0FAFB;
+    display: none;
+}
+
+#loader {
+    margin-top: 40px;
+}
+
+.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 header {
     padding: 20px 0;
     background-color: #64BABB;
+}
+
+.themes_switcher {
+    display: inline-block;
+    height: 20px;
+    width: 43px;
+    background-color: white;
+    border-radius: 35px;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    transition: all .4s ease-in-out;
+}
+
+.themes_switcher:hover {
+    cursor: pointer;
+}
+
+.circle {
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    box-shadow:0 3px 3px rgba(0,0,0,.2),0 0 0 2px #dddddd;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 6px);
+    left: 3px;
+    background-color: white;
+}
+
+.themesSwitcherDark .circle {
+    left: calc(100% - 16px);
+}
+
+.themesSwitcherDark {
+    background-color: #F35F43;
 }
 
 .filter_field {
@@ -56,6 +109,7 @@ header {
     min-width: 10%;
     text-align: center;
     color: #64BABB;
+    transition: background .3s;
 }
 
 .dev_tag.active {
@@ -84,6 +138,7 @@ main {
     background-color: #F0FAFB;
     min-height: 100vh;
     padding: 20px 0;
+    position: relative;
 }
 
 .no_result {
@@ -96,6 +151,7 @@ main {
     width: 80%;
     margin: 0 auto;
     padding: 30px;
+    position: relative;
 }
 
 .vacancy_item {
@@ -215,5 +271,13 @@ main {
 .pageNumber:hover {
     cursor: pointer;
     color: #64BABB;
+}
+
+.main_preloader {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: #64BABB;
+    z-index: 1000;
 }
 

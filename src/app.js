@@ -2,6 +2,8 @@
 
 import './reset.css';
 import './style.css';
+import './mainloader.css';
+import './dark.css';
 
 const vacancyTemplate = document.querySelector('#vacancy_item_template').innerHTML;
 const vacanciesList = document.querySelector('.vacancies_list');
@@ -10,10 +12,13 @@ const tagsArea = document.querySelectorAll('.city_tag');
 const tagsLanguage = document.querySelectorAll('.dev_tag');
 const clearButton = document.querySelector('.clear_filters_button');
 const tag = document.querySelectorAll('.tag');
+const mainPreloader = document.querySelector('.main_preloader');
+const themesSwitcher = document.querySelector('.themes_switcher');
+const body = document.querySelector('body');
 
 tagsField.addEventListener('click', onTagsFieldClick);
-clearButton.addEventListener('click', onClearButtonClick)
-
+clearButton.addEventListener('click', onClearButtonClick);
+themesSwitcher.addEventListener('click', onToggleThemesClick);
 
 let vacanciesData = [];
 let filterLanguageTags;
@@ -32,7 +37,13 @@ function init() {
         console.log(vacanciesData)
 
         renderVacanciesList(vacanciesData['items']);
+        mainPreloader.remove();
     }
+}
+
+function onToggleThemesClick() {
+    themesSwitcher.classList.toggle('themesSwitcherDark');
+    body.classList.toggle('darkTheme');
 }
 
 function onClearButtonClick() {
@@ -141,6 +152,7 @@ function determineTagLanguage(el) {
             '.NET', 'JavaScript',
             'Unity', 'React',
             'Vue', 'Full-Stack',
+            'PHP', 'Web'
         ];
     
     const languageItem = language.find(elem => el['name'].includes(elem)) || 'Другие специальности';

@@ -1,0 +1,49 @@
+.darkTheme * {
+    transition: all .3s;
+}
+
+.darkTheme header {
+    background-color: #000000;
+}
+
+.darkTheme main {
+    background-color: #181818;
+}
+
+.darkTheme .vacancy_item {
+    background-color: #2B2C2E;
+}
+
+.darkTheme .vacancy_item:before {
+    background-color: #F35F43;
+}
+
+.darkTheme .tag {
+    background-color: #1B3C65;
+    color: white;
+}
+
+.darkTheme .dev_tag:hover {
+    background-color: #F35F43;
+}
+
+.darkTheme .city_tag:hover {
+    background-color: #95476E;
+}
+
+.darkTheme .dev_tag.active {
+    background-color: #F35F43;
+}
+
+.darkTheme .city_tag.active {
+    background-color: #95476E;
+}
+
+.darkTheme .vacancy_tag {
+    background-color: #1B3C65;
+    color: white;
+}
+
+.darkTheme .vacancy_info * {
+    color: white;
+}
