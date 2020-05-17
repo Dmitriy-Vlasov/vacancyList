@@ -20,19 +20,19 @@ body * {
 }
 
 header {
-    padding: 20px 0;
+    padding: 40px 0;
     background-color: #64BABB;
 }
 
 .themes_switcher {
     display: inline-block;
     height: 20px;
-    width: 43px;
+    width: 44px;
     background-color: white;
     border-radius: 35px;
     position: absolute;
-    top: 20px;
-    left: 40px;
+    top: 10px;
+    left: calc(50% - 22px);
     transition: all .4s ease-in-out;
 }
 
@@ -157,12 +157,11 @@ main {
 .vacancy_item {
     border-radius: 8px;
     width: 100%;
-    height: 150px;
     background-color: #fff;
     overflow: hidden;
     display: flex;
     align-items: center;
-    padding: 0 30px;
+    padding: 20px 30px;
     justify-content: space-between;
     position: relative;
     margin-bottom: 30px;
@@ -279,5 +278,20 @@ main {
     width: 100vw;
     background-color: #64BABB;
     z-index: 1000;
+}
+
+@media (max-width: 871px) {
+    .vacancy_item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .vacancy_info_block {
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 

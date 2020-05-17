@@ -1,7 +1,3 @@
-.darkTheme * {
-    transition: all .3s;
-}
-
 .darkTheme header {
     background-color: #000000;
 }
