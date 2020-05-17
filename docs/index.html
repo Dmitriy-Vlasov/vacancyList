@@ -3,10 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="bundle.js"></script>
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://pbs.twimg.com/profile_images/484250911162646529/kM2dke2__400x400.png" type="image/png">
+    <title>Vacancies_List</title>
 </head>
 <body>
-    
-</body>
+    <div class="main_preloader">
+        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+    <header>
+        <span class="themes_switcher">
+            <span class="circle">
+
+            </span>
+        </span> 
+        <div class="tags_field">
+            <div class="dev_tags">
+                <div class="dev_tag tag">Python</div>
+                <div class="dev_tag tag">Java </div>
+                <div class="dev_tag tag">C++</div>
+                <div class="dev_tag tag">C#</div>
+                <div class="dev_tag tag">.NET</div>
+                <div class="dev_tag tag">JavaScript</div>
+                <div class="dev_tag tag">Unity</div>
+                <div class="dev_tag tag">React</div>
+                <div class="dev_tag tag">Vue</div>
+                <div class="dev_tag tag">Full-Stack</div>
+                <div class="dev_tag tag">PHP</div>
+                <div class="dev_tag tag">Web</div>
+                <div class="dev_tag tag">Другие специальности</div>
+            </div>
+            <div class="dev_tags">
+                <div class="city_tag tag">Киев</div>
+                <div class="city_tag tag">Харьков</div>
+                <div class="city_tag tag">Днепр</div>
+                <div class="city_tag tag">Винница</div>
+                <div class="city_tag tag">Львов</div>
+                <div class="city_tag tag">Запорожье</div>
+                <div class="city_tag tag">Одесса</div>
+                <div class="city_tag tag">Другие города</div>
+            </div>
+        </div>
+        <div class="clear_filters_button">
+            Убрать все фильтры
+        </div>
+    </header>
+    <main>
+        <div class="wrapper vacancies_list">
+        </div>
+    </main>
+
+    <template  id='vacancy_item_template'>
+        <div class="vacancy_item" data-id="{{data-id}}">
+            <div class="vacancy_info_block">
+                <div class="vacancy_logo" style="background-image: url({{logo}});"></div>
+                <div class="vacancy_info">
+                    <h2 class="vacancy_company_name">{{company_name}}</h2>
+                    <p class="vacancy_title">{{vacancy_title}}</p>
+                    <div class="vacancy_description">
+                        <p class="vacancy_date">{{vacancy_date}}</p>
+                        <p class="vacancy_salary">{{vacancy_salary}}</p>
+                        <div class="vacancy_area">{{vacancy_area}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="vacancy_tags">
+                <div class="vacancy_tag">{{tag_language}}</div>
+                <div class="vacancy_tag">{{tag_area}}</div>
+            </div>
+        </div>
+    </template>
+
+    <script> </script>
+<script src="bundle.js"></script></body>
 </html>
